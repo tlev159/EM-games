@@ -1,0 +1,33 @@
+package euro2021;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class GameTest {
+
+    List<Game> games;
+
+    @BeforeEach
+    public void init() {
+        games = List.of(new Game("Magyarország", "Portugália", 3, 0),
+                new Game("Anglia", "Horvátrszág", 1, 0),
+                new Game("Németország", "Franciaország", 2, 2));
+    }
+
+    @Test
+    public void testGetWinnerCountryForWinner() {
+        Game game = games.get(0);
+
+    }
+
+
+    @Test
+    public void testGetWinnerCountryForDraw() {
+        Game game2 = games.get(1);
+
+    }
+}

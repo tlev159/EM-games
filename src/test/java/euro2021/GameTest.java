@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class GameTest {
 
@@ -13,7 +13,7 @@ class GameTest {
 
     @BeforeEach
     public void init() {
-        games = List.of(new Game("Magyarország", "Portugália", 3, 0),
+        games = List.of(new Game("Magyarország", "Portugália", 0, 2),
                 new Game("Anglia", "Horvátrszág", 1, 0),
                 new Game("Németország", "Franciaország", 2, 2));
     }
@@ -21,13 +21,15 @@ class GameTest {
     @Test
     public void testGetWinnerCountryForWinner() {
         Game game = games.get(0);
-
+        assertThat(game.getWinnerCountry())
+        .isEqualTo("Portugália");
     }
 
 
     @Test
     public void testGetWinnerCountryForDraw() {
-        Game game2 = games.get(1);
-
+        Game game = games.get(2);
+        assertThat(game.getWinnerCountry())
+                .isEqualTo("Draw");
     }
 }

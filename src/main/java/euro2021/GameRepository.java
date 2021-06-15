@@ -13,6 +13,9 @@ public class GameRepository {
     private List<Game> games = new ArrayList<>();
 
     public void addGame(Game game) {
+        if(game == null) {
+            throw new IllegalArgumentException("Game can not be null!");
+        }
         games.add(game);
     }
 
@@ -34,4 +37,7 @@ public class GameRepository {
         }
     }
 
+    public List<Game> getGames() {
+        return new ArrayList<>(games);
+    }
 }
